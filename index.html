@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Math Hero - Fun Math Learning</title>
+    <meta name="description"
+        content="A fun and interactive math learning game for kids. Practice addition, subtraction, multiplication, and division!">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff6b6b">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="bg-animations" id="bg-animations">
+        <!-- Floating elements will be injected here -->
+    </div>
+    <div id="app">
+        <!-- Home Screen -->
+        <main id="home-screen" class="screen active">
+            <header>
+                <div class="math-icons">
+                    <span class="math-icon">✏️</span>
+                    <span class="math-icon">📚</span>
+                    <span class="math-icon">🧮</span>
+                </div>
+                <div class="title-container">
+                    <h1>Fun Math Quiz</h1>
+                    <p>Ready to level up your brain?</p>
+                </div>
+                <button id="dashboard-btn" class="secondary-btn">📊 Parents Dashboard</button>
+
+                <button id="main-play-btn" class="play-btn">
+                    <span>🎮</span> PLAY NOW
+                </button>
+
+                <div class="difficulty-section">
+                    <p>Select Difficulty:</p>
+                    <div class="difficulty-picker">
+                        <button class="diff-btn active" data-diff="easy">Easy</button>
+                        <button class="diff-btn" data-diff="medium">Medium</button>
+                        <button class="diff-btn" data-diff="hard">Hard</button>
+                    </div>
+                </div>
+            </header>
+            <div class="modes-grid">
+                <button class="mode-btn" data-mode="addition">
+                    <span class="icon">➕</span>
+                    <span class="label">Addition</span>
+                </button>
+                <button class="mode-btn" data-mode="subtraction">
+                    <span class="icon">➖</span>
+                    <span class="label">Subtraction</span>
+                </button>
+                <button class="mode-btn" data-mode="multiplication">
+                    <span class="icon">✖️</span>
+                    <span class="label">Multiplication</span>
+                </button>
+                <button class="mode-btn" data-mode="division">
+                    <span class="icon">➗</span>
+                    <span class="label">Division</span>
+                </button>
+                <button class="mode-btn" data-mode="mix">
+                    <span class="icon">🎲</span>
+                    <span class="label">Mix Mode</span>
+                </button>
+            </div>
+        </main>
+
+        <!-- Game Screen -->
+        <section id="game-screen" class="screen">
+            <nav class="game-nav">
+                <button id="back-btn" class="icon-btn">⬅️</button>
+                <div class="difficulty-display">
+                    <span id="game-diff-label">Easy</span>
+                </div>
+                <div class="score-container">
+                    <span>Score: </span>
+                    <span id="score-val">0</span>
+                </div>
+            </nav>
+
+            <div class="quiz-container">
+                <div id="math-problem" class="math-problem">
+                    <div class="num" id="num1">7</div>
+                    <div class="op-line">
+                        <span id="operator">+</span>
+                        <span id="num2">5</span>
+                    </div>
+                    <hr class="math-hr">
+                    <div class="answer-wrapper">
+                        <input type="number" id="answer-input" placeholder="?" autocomplete="off" inputmode="numeric">
+                    </div>
+                </div>
+                <div id="feedback" class="feedback"></div>
+            </div>
+        </section>
+
+        <!-- Dashboard Screen -->
+        <section id="dashboard-screen" class="screen">
+            <nav class="game-nav">
+                <button id="dash-back-btn" class="icon-btn">⬅️</button>
+                <div class="score-container">Live Performance Dashboard</div>
+            </nav>
+
+            <div class="dashboard-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">📊 Total Attempted</span>
+                        <span id="stat-total" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">✔ Correct Answers</span>
+                        <span id="stat-correct" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">✖ Wrong Answers</span>
+                        <span id="stat-wrong" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">🎯 Accuracy %</span>
+                        <span id="stat-accuracy" class="stat-value">0%</span>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Performance by Mode</h3>
+                    <div id="bar-chart" class="bar-chart">
+                        <!-- Bars will be injected by JS -->
+                    </div>
+                </div>
+
+                <div class="dash-footer">
+                    <button id="reset-btn" class="reset-btn">🗑️ Reset Stats</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js');
+            });
+        }
+    </script>
+</body>
+
+</html>
