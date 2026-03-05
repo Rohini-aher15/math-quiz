@@ -66,7 +66,7 @@
             'score-val', 'num1', 'num2', 'operator',
             'answer-input', 'feedback', 'stat-total',
             'stat-correct', 'stat-wrong', 'stat-accuracy',
-            'bar-chart', 'bg-animations'
+            'bar-chart', 'bg-animations', 'submit-answer-btn'
         ];
 
         ids.forEach(id => {
@@ -140,10 +140,11 @@
             });
         }
 
+        if (els.submitAnswerBtn) {
+            els.submitAnswerBtn.addEventListener('click', checkAnswer);
+        }
+
         if (els.answerInput) {
-            els.answerInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') checkAnswer();
-            });
             // Focus input on load
             setTimeout(() => els.answerInput.focus(), 500);
         }
