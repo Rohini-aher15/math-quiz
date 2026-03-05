@@ -567,6 +567,31 @@ header p {
     opacity: 0.3;
 }
 
+/* CTA Submit Button */
+.cta-btn {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    margin: 15px auto 0;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, var(--accent-5), var(--primary));
+    color: white;
+    font-size: 2.2rem;
+    font-weight: 900;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    box-shadow: 0 8px 0 #2d66c4, 0 15px 25px rgba(58, 134, 255, 0.4);
+    transition: all 0.1s ease-out;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cta-btn:active {
+    transform: translateY(8px);
+    box-shadow: 0 0 0 #2d66c4, 0 5px 10px rgba(58, 134, 255, 0.4);
+}
+
 /* Correct/Wrong Visuals */
 .feedback {
     margin-top: 25px;
